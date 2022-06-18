@@ -25,13 +25,5 @@ namespace NET_ININ3_PR1_z4
         {
             InitializeComponent();
         }
-
-        private void Szczegóły(object sender, RoutedEventArgs e)
-        {
-            ListBox lista = (ListBox)this.FindName("ListaGrup");
-            XmlNode grupa = (XmlNode)lista.SelectedItem;
-            if (grupa != null)
-                new SzczegółyGrupy(grupa).Show();
-        }
     }
 }

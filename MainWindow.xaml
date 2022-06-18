@@ -8,32 +8,33 @@
         
         Title="MainWindow"
         Height="450"
-        Width="400"
+        Width="800"
         FontSize="24"
         >
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="100"/>
-        </Grid.RowDefinitions>
-
-        <ListBox
-            x:Name="ListaGrup"
-            DataContext="{DynamicResource ResourceKey=Dane}"
-            ItemsSource="{Binding XPath=grupa}"
+        <DataGrid
+            DataContext="{DynamicResource Dane}"
+            ItemsSource="{Binding XPath=//produkt}"
+            AutoGenerateColumns="False"
             >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock
-                        Text="{Binding XPath=@nazwa}"
-                        />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Button
-            Grid.Row="1" Click="Szczegóły"
-            >
-            Szczegóły
-        </Button>
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Nazwa"
+                    Binding="{Binding XPath=nazwa}"
+                    />
+                <DataGridTextColumn
+                    Header="Cena"
+                    Binding="{Binding XPath=cena}"
+                    />
+                <DataGridTextColumn
+                    Header="Kraj pochodzenia"
+                    Binding="{Binding XPath=kraj_pochodzenia}"
+                    />
+                <DataGridTextColumn
+                    Header="Grupa"
+                    Binding="{Binding XPath=../../@nazwa}"
+                    />                
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
