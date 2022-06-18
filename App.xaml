@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:NET_ININ3_PR1_z4"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <XmlDataProvider
+            x:Key="Dane"
+            Source="Dane.xml"
+            XPath="grupy_produktów"
+            />
     </Application.Resources>
 </Application>

@@ -10,28 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
 
 namespace NET_ININ3_PR1_z4
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy SzczegółyGrupy.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SzczegółyGrupy : Window
     {
-        public MainWindow()
+        public SzczegółyGrupy(XmlNode grupa)
         {
+            DataContext = grupa;
             InitializeComponent();
-        }
-
-        private void Szczegóły(object sender, RoutedEventArgs e)
-        {
-            ListBox lista = (ListBox)this.FindName("ListaGrup");
-            XmlNode grupa = (XmlNode)lista.SelectedItem;
-            if (grupa != null)
-                new SzczegółyGrupy(grupa).Show();
         }
     }
 }
